@@ -1,11 +1,11 @@
-# wildlife-DLM-Mobv3
+# wildlife DLM-Mobv3
 A lightweight dual-spectrogram fusion network for automated wildlife vocalization recognition in passive acoustic monitoring
 
 ## **1. Environment Setup**
 
 Clone the repository:
 
-    git clone https://github.com/Aurora-nl/wildlife-DLM-Mobv3.git
+    git clone https://github.com/Aurora-nl/DLM-Mobv3.git
 
 Install the required dependencies:
 
