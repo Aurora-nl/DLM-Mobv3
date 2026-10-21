@@ -157,11 +157,11 @@ class SimAMFusion(nn.Module):
         x = self.conv1x1(x)
         return x
 class MobileNetV3_Fusion(nn.Module):
-    def __init__(self, num_classes=15):
+    def __init__(self, num_classes=15): # num_classes = n_classes
         super(MobileNetV3_Fusion, self).__init__()
         self.fusion = SimAMFusion()
         self.mobilenet = mobilenet_v3_small()
-        self.mobilenet.classifier[-1] = nn.Linear(self.mobilenet.classifier[-1].in_features, num_classes)  # 修改输出类别
+        self.mobilenet.classifier[-1] = nn.Linear(self.mobilenet.classifier[-1].in_features, num_classes) 
 
     def forward(self, mel, stft):
         x = self.fusion(mel, stft)
@@ -171,15 +171,14 @@ class MobileNetV3_Fusion(nn.Module):
 
 if __name__ == '__main__':
     df = pd.DataFrame()
-
     # your dataset path
-    train_mel_path = '../../dataset/Log-Mel spectrograms/train/'
-    val_mel_path = '../../dataset/Log-Mel spectrograms/val/'
-    test_mel_path = '../../dataset/Log-Mel spectrograms/test/'
+    train_mel_path = './dataset/logMel/train/'
+    val_mel_path = './dataset/logMel/val/'
+    test_mel_path = './dataset/logMel/test/'
 
-    train_stft_path = '../../dataset/STFT spectrograms/train/'
-    val_stft_path = '../../dataset/STFT spectrograms/val/'
-    test_stft_path = '../../dataset/STFT spectrograms/test/'
+    train_stft_path = './dataset/stft/train/'
+    val_stft_path = './dataset/stft/val/'
+    test_stft_path = './dataset/stft/test/'
 
     batch_size = 32
     epoch_size = 100
